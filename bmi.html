@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free BMI calculator for adults. Calculate BMI using your height and weight.">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <title>BMI Calculator - Calculate Your BMI | IndianFitCalc</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Indian<span>FitCalc</span>
+        </a>
+
+        <button class="menu-button" id="menuButton">
+            ☰
+        </button>
+
+        <nav class="navigation" id="navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="bmi.html">
+                BMI Calculator
+            </a>
+
+            <a href="maintenance-calories.html">
+                Maintenance Calories
+            </a>
+             <a href="protein-calculator.html">
+                Protein-calculator
+            </a>
+
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container calculator-page">
+
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        /
+
+        BMI Calculator
+
+    </div>
+
+
+    <!-- CALCULATOR -->
+
+    <section class="calculator-box">
+
+        <span class="small-label">
+            BMI CALCULATOR
+        </span>
+
+        <h1>
+            Calculate Your BMI
+        </h1>
+
+        <p class="calculator-description">
+            Enter your age, sex, height and weight
+            to calculate your Body Mass Index.
+        </p>
+
+
+        <form id="bmiForm">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="bmiAge">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmiAge"
+                        placeholder="Example: 20"
+                        min="18"
+                        max="120"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bmiSex">
+                        Sex
+                    </label>
+
+                    <select id="bmiSex" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="male">
+                            Male
+                        </option>
+
+                        <option value="female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bmiHeight">
+                        Height (cm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmiHeight"
+                        placeholder="Example: 170"
+                        min="100"
+                        max="250"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bmiWeight">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmiWeight"
+                        placeholder="Example: 70"
+                        min="20"
+                        max="300"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button full-button">
+
+                Calculate BMI
+
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+    <!-- AD -->
+
+    
+
+
+    <!-- RESULT -->
+
+    <section
+        class="result-box hidden"
+        id="bmiResult">
+
+
+        <span class="small-label">
+            YOUR RESULT
+        </span>
+
+
+        <h2>
+            Your BMI
+        </h2>
+
+
+        <div class="big-result">
+
+            <strong id="bmiNumber">
+                --
+            </strong>
+
+        </div>
+
+
+        <div
+            class="result-category"
+            id="bmiCategory">
+
+            --
+
+        </div>
+
+
+        <p id="bmiMessage">
+            --
+
+        </p>
+
+
+        <div class="result-buttons">
+
+            <button
+                class="secondary-button"
+                id="bmiRecalculate">
+
+                Recalculate
+
+            </button>
+
+
+            <a
+                href="maintenance-calories.html"
+                class="primary-button">
+
+                Calculate Maintenance Calories →
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- RESULT AD -->
+
+    
+
+        <!-- PASTE RESPONSIVE AD CODE HERE -->
+
+    
+
+
+    <!-- INFORMATION -->
+
+    <article class="content">
+
+        <h2>
+            What is BMI?
+        </h2>
+
+        <p>
+            BMI, or Body Mass Index, is a screening
+            measurement calculated using a person's
+            height and weight.
+        </p>
+
+
+        <h2>
+            BMI Categories
+        </h2>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            BMI
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>Below 18.5</td>
+                        <td>Underweight</td>
+                    </tr>
+
+                    <tr>
+                        <td>18.5 – 24.9</td>
+                        <td>Normal range</td>
+                    </tr>
+
+                    <tr>
+                        <td>25.0 – 29.9</td>
+                        <td>Overweight</td>
+                    </tr>
+
+                    <tr>
+                        <td>30.0 and above</td>
+                        <td>Obesity range</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p class="notice">
+            BMI is a general screening measurement and
+            does not directly measure body fat or muscle
+            mass. Individual health circumstances can vary.
+        </p>
+
+    </article>
+
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <h3>
+                IndianFitCalc
+            </h3>
+
+            <p>
+                Free fitness calculators.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="disclaimer.html">
+                Disclaimer
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 IndianFitCalc.
+
+    </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+
+<script src="bmi.js"></script>
+
+
+</body>
+
+</html>

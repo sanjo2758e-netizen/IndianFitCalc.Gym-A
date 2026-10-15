@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free maintenance calorie calculator. Calculate BMR and daily TDEE using age, height, weight and activity level.">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <title>Maintenance Calorie Calculator | IndianFitCalc</title>
+
+    <link rel="stylesheet" href="style.css">
+   
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Indian<span>FitCalc</span>
+        </a>
+
+        <button class="menu-button" id="menuButton">
+            ☰
+        </button>
+
+        <nav class="navigation" id="navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="bmi.html">
+                BMI Calculator
+            </a>
+
+            <a href="maintenance-calories.html">
+                Maintenance Calories
+            </a>
+            <a href="protein-calculator.html">
+                Protein-calculator
+            </a>
+
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container calculator-page">
+
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        /
+
+        Maintenance Calories
+
+    </div>
+
+
+    <section class="calculator-box">
+
+        <span class="small-label">
+            TDEE CALCULATOR
+        </span>
+
+
+        <h1>
+            Maintenance Calorie Calculator
+        </h1>
+
+
+        <p class="calculator-description">
+
+            Estimate your BMR and daily maintenance
+            calories using the Mifflin-St Jeor equation.
+
+        </p>
+
+
+        <form id="calorieForm">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="calorieAge">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="calorieAge"
+                        placeholder="Example: 20"
+                        min="18"
+                        max="120"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="calorieSex">
+                        Sex
+                    </label>
+
+                    <select id="calorieSex" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="male">
+                            Male
+                        </option>
+
+                        <option value="female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="calorieHeight">
+                        Height (cm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="calorieHeight"
+                        placeholder="Example: 170"
+                        min="100"
+                        max="250"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="calorieWeight">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="calorieWeight"
+                        placeholder="Example: 70"
+                        min="20"
+                        max="300"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="activity">
+                        Activity Level
+                    </label>
+
+                    <select id="activity" required>
+
+                        <option value="">
+                            Select activity level
+                        </option>
+
+                        <option value="1.2">
+                            Sedentary — little or no exercise
+                        </option>
+
+                        <option value="1.375">
+                            Lightly active — exercise 1–3 days/week
+                        </option>
+
+                        <option value="1.55">
+                            Moderately active — exercise 3–5 days/week
+                        </option>
+
+                        <option value="1.725">
+                            Very active — exercise 6–7 days/week
+                        </option>
+
+                        <option value="1.9">
+                            Extra active — very hard training
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button full-button">
+
+                Calculate Maintenance Calories
+
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+    <!-- AD -->
+
+    <div class="ad-container">
+
+        <span>
+           
+        </span>
+
+        <!-- PASTE RESPONSIVE AD CODE HERE -->
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <section
+        class="result-box hidden"
+        id="calorieResult">
+
+
+        <span class="small-label">
+            YOUR RESULT
+        </span>
+
+
+        <h2>
+            Estimated Maintenance Calories
+        </h2>
+
+
+        <div class="big-result">
+
+            <strong id="tdeeNumber">
+                --
+            </strong>
+
+            <span>
+                kcal/day
+            </span>
+
+        </div>
+
+
+        <div class="calorie-results">
+
+
+            <div>
+
+                <span>
+                    BMR
+                </span>
+
+                <strong id="bmrNumber">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Weight Loss Guide
+                </span>
+
+                <strong id="lossNumber">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Weight Gain Guide
+                </span>
+
+                <strong id="gainNumber">
+                    --
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="notice">
+
+            These values are estimates. Actual calorie
+            requirements can differ between individuals.
+
+        </p>
+
+
+        <div class="result-buttons">
+
+            <button
+                class="secondary-button"
+                id="calorieRecalculate">
+
+                Recalculate
+
+            </button>
+
+
+            <a
+                href="bmi.html"
+                class="primary-button">
+
+                Calculate BMI →
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- AD -->
+
+    <div class="ad-container">
+
+        <span>
+            
+        </span>
+
+        <!-- PASTE RESPONSIVE AD CODE HERE -->
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <article class="content">
+
+
+        <h2>
+            What are maintenance calories?
+        </h2>
+
+
+        <p>
+
+            Maintenance calories are an estimate of the
+            number of calories your body needs each day
+            to maintain its current weight.
+
+        </p>
+
+
+        <h2>
+            What is BMR?
+        </h2>
+
+
+        <p>
+
+            BMR stands for Basal Metabolic Rate. It is
+            an estimate of how much energy your body uses
+            while at rest.
+
+        </p>
+
+
+        <h2>
+            How is TDEE calculated?
+        </h2>
+
+
+        <p>
+
+            This calculator estimates BMR using the
+            Mifflin-St Jeor equation and then multiplies
+            BMR by an activity factor to estimate TDEE.
+
+        </p>
+
+
+        <p class="notice">
+
+            For significant weight loss, medical conditions,
+            eating disorders, pregnancy, or other health
+            concerns, consult an appropriately qualified
+            healthcare professional.
+
+        </p>
+
+
+    </article>
+
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <h3>
+                IndianFitCalc
+            </h3>
+
+            <p>
+                Free fitness calculators.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="disclaimer.html">
+                Disclaimer
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 IndianFitCalc.
+
+    </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+
+<script src="calories.js"></script>
+
+
+</body>
+
+</html>
