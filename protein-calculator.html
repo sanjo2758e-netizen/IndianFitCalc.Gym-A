@@ -4,622 +4,729 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculate your daily protein intake based on your weight, activity level, and fitness goals with our free protein calculator.">
-  <meta name="theme-color" content="#16a34a">
+  <meta name="theme-color" content="#080a09">
+
   <title>Protein Intake Calculator | IndianFitCalc</title>
+  <meta name="description" content="Calculate your estimated daily protein requirements based on body weight and fitness goals. Includes common Indian food protein examples.">
 
-  
-</head>
-<style>
-     * {
-    box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
+    :root {
+      --bg: #080a09;
+      --card: #121713;
+      --green: #159845;
+      --light-green: #39df77;
+      --white: #ffffff;
+      --muted: #b9c4bc;
+      --border: #29342c;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    html {
+      width: 100%;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
-
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    color: #17211b;
-
-    background: #f7faf8;
-
-    line-height: 1.6;
-
-    overflow-x: hidden;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
-    img {
-    max-width: 100%;
-}
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+    button,
+    input,
+    select {
+      font: inherit;
+    }
 
+    button,
+    input,
+    select,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-button,
-input,
-select {
-    font: inherit;
-}
-.container {
-    width: min(100% - 28px, 1080px);
-
-    margin-left: auto;
-    margin-right: auto;
-}
+    .container {
+      width: min(100% - 32px, 900px);
+      margin-inline: auto;
+    }
 
     header {
-      background: #ffffff;
-
-    border-bottom: 1px solid #e4e9e5;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
-    }
-    .nav-container {
-    width: min(100% - 28px, 1080px);
-
-    min-height: 66px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-.logo {
-    font-size: 1.35rem;
-
-    font-weight: 800;
-
-    letter-spacing: -0.04em;
-}
-.logo span {
-    color: #16a34a;
-}
-.navigation {
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-}
-
-
-
-    header h1 {
-      font-size: 25px;
-      color: #16a34a;
+      border-bottom: 1px solid var(--border);
+      background: #0c100d;
     }
 
-    header p {
+    .header-inner {
+      padding: 16px 0 12px;
+    }
+
+    .brand {
+      display: inline-block;
+      color: var(--light-green);
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: -0.7px;
+    }
+
+    .brand span {
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      margin-top: 12px;
+      padding-bottom: 4px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    nav a {
+      flex: 0 0 auto;
+      color: var(--muted);
       font-size: 14px;
-      color: #d1d5db;
+      white-space: nowrap;
     }
 
-    navigation {
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-}
-
-
-.navigation a {
-    font-size: 0.92rem;
-
-    font-weight: 650;
-
-    color: #405047;
-}
-
-
-.navigation a:hover {
-    color: #16a34a;
-}
-
-    .menu-button {
-    display: none;
-
-    border: none;
-
-    background: transparent;
-
-    font-size: 1.5rem;
-
-    cursor: pointer;
-}
-.hero {
-    padding: 75px 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eaf8ee,
-            #f7faf8
-        );
-}
-
-
-.hero-content {
-    display: grid;
-
-    grid-template-columns: 1.4fr 0.6fr;
-
-    gap: 45px;
-
-    align-items: center;
-}
-
-
-.small-label {
-    color: #15803d;
-
-    font-size: 0.75rem;
-
-    font-weight: 800;
-
-    letter-spacing: 0.12em;
-}
-
-
-.hero h1 {
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-
-    line-height: 1.03;
-
-    letter-spacing: -0.055em;
-
-    margin: 12px 0 18px;
-}
-
-
-.hero-text p {
-    color: #5d6961;
-
-    font-size: 1.1rem;
-
-    max-width: 650px;
-
-    margin-bottom: 28px;
-}
-
+    nav a:hover,
+    nav a.active {
+      color: var(--light-green);
+    }
 
     main {
-      width: 100%;
-      max-width: 700px;
-      margin: 28px auto;
-      padding: 0 15px;
+      padding: 28px 0 40px;
     }
 
-    .card {
-      background: white;
+    .hero {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--light-green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0;
+      font-size: clamp(27px, 6vw, 42px);
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .hero p {
+      max-width: 570px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .calculator,
+    .section-card {
+      min-width: 0;
       padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 5px 22px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .calculator h2,
+    .section-card h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .description {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form-group {
       margin-bottom: 20px;
     }
 
-    .card h2 {
-      font-size: 22px;
+    label {
+      display: block;
       margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 700;
     }
 
-    .intro {
-      color: #16a34a;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-    .label {
-    display: block;
-      font-weight: 600;
-      margin: 17px 0 7px;
-    }
     input,
     select {
+      display: block;
       width: 100%;
-      padding: 13px;
-      border: 1px solid #ccd5ce;
-      border-radius: 9px;
+      min-width: 0;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid #39483c;
+      border-radius: 10px;
+      outline: none;
+      background: #090d0a;
+      color: var(--white);
       font-size: 16px;
-      background: white;
-      color: #17231b;
-    }
-    .breadcrumb {
-    color: #68756c;
-
-    font-size: 0.9rem;
-
-    margin-bottom: 18px;
-}
-
-
-.breadcrumb a {
-    color: #15803d;
-
-    font-weight: 700;
-}
-
-
-
-
-
-      
-   
-    
-
-    
-    select {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccd5ce;
-      border-radius: 9px;
-      font-size: 16px;
-      background: white;
-      color: #17231b;
     }
 
     input:focus,
     select:focus {
-      outline: 2px solid #16a34a;
-      border-color: #16a34a;
+      border-color: var(--light-green);
+      box-shadow: 0 0 0 2px #39df7725;
     }
 
-    button {
-      width: 100%;
-      margin-top: 22px;
-      padding: 14px;
-      background: #16a34a;
+    select option {
+      background: #121713;
       color: white;
-      border: none;
-      border-radius: 9px;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .calculate-btn {
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
       font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #15803d;
-    }
-
-    #result {
-      display: none;
-      margin-top: 22px;
-      padding: 20px;
-      background: #ecfdf3;
-      border: 1px solid #bbf7d0;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    #result h3 {
-      color: #166534;
-      font-size: 18px;
-    }
-
-    .protein-number {
-      font-size: 42px;
       font-weight: 800;
-      color: #15803d;
-      margin: 8px 0;
-    }
-    .hero-text p {
-    color: #5d6961;
-
-    font-size: 1.1rem;
-
-    max-width: 650px;
-
-    margin-bottom: 28px;
-}
-.hero-content {
-    display: grid;
-
-    grid-template-columns: 1.4fr 0.6fr;
-
-    gap: 45px;
-
-    align-items: center;
-}
-
-
-
-    .result-detail {
-      font-size: 14px;
-      color: #3f5144;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .food-list {
-      padding-left: 21px;
-      margin-top: 12px;
+    .calculate-btn:hover {
+      background: #117b38;
     }
 
-    .food-list li {
-      margin: 8px 0;
-    }
-
-    .note {
-      font-size: 13px;
-      color: #647067;
-      margin-top: 14px;
+    .calculate-btn:focus-visible {
+      outline: 3px solid var(--light-green);
+      outline-offset: 3px;
     }
 
     .error {
-      color: #b91c1c;
-      font-size: 14px;
       margin-top: 12px;
+      color: #ff9292;
+      font-size: 14px;
+    }
+
+    .result {
+      display: none;
+      min-width: 0;
+      margin-top: 22px;
+      padding: 20px;
+      border: 1px solid #247442;
+      border-radius: 14px;
+      background: #0c1b11;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .result-number {
+      margin: 6px 0;
+      color: var(--light-green);
+      font-size: clamp(30px, 7vw, 42px);
+      font-weight: 900;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .result-number small {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .result p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .result strong {
+      color: white;
+    }
+
+    .sections {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .section-card h2 {
+      color: var(--light-green);
+    }
+
+    .section-card > p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .food-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .food-item {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0b0f0c;
+    }
+
+    .food-item strong {
+      display: block;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .food-item span {
+      display: block;
+      margin-top: 5px;
+      color: var(--light-green);
+      font-size: 13px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 3px solid var(--green);
+      border-radius: 4px;
+      background: #0b100c;
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .goal-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .goal-item {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .goal-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .goal-item strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .goal-item span {
+      color: var(--muted);
+      font-size: 14px;
     }
 
     footer {
+      padding: 22px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
       text-align: center;
-      padding: 22px 15px;
-      background: #101c14;
-      color: #d1d5db;
       font-size: 13px;
     }
 
     footer a {
-      color: #4ade80;
-      margin: 0 6px;
-      text-decoration: none;
+      color: var(--light-green);
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 18px;
+      .container {
+        width: calc(100% - 24px);
       }
 
-      header h1 {
-        font-size: 22px;
+      .header-inner {
+        padding-top: 13px;
       }
 
-      .protein-number {
-        font-size: 36px;
+      .brand {
+        font-size: 21px;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      main {
+        padding-top: 23px;
+      }
+
+      .hero {
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .calculator,
+      .section-card {
+        padding: 17px;
+        border-radius: 14px;
+      }
+
+      .calculator h2,
+      .section-card h2 {
+        font-size: 20px;
+      }
+
+      .food-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .result {
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
       }
     }
   </style>
+</head>
 
 <body>
-  <header class="header">
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        IndianFit<span>Calc</span>
+      </a>
 
-    <div class="nav-container">
-     <a href="index.html" class="logo">
-            Indian<span>FitCalc</span>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="bmi.html">BMI</a>
+        <a href="maintenance-calories.html">Calories</a>
+        <a class="active" href="protein-calculator.html">
+          Protein
         </a>
-       <button class="menu-button" id="menuButton">
-            ☰
-        </button>
-     <section class="hero-text p ">
-    
-</section>
-    <nav class="navigation" id="navigation">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="bmi.html">
-                BMI Calculator
-            </a>
-
-            <a href="maintenance-calories.html">
-                Maintenance Calories
-            </a>
-            <a href="protein-calculator.html">
-                Protein-calculator
-            </a>
-
-
-        </nav>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <div class="breadcrumb">
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Free Fitness Calculator</div>
+      <h1>Protein Intake Calculator</h1>
+      <p>
+        Estimate how much protein you may need each day
+        based on your body weight and fitness goal.
+      </p>
+    </section>
 
-        <a href="index.html">
-            Home
-        </a>
-
-        /
-
-        Protein Calculator
-
-    </div>
-
-    <section class="card">
-      <h2>Daily Protein Intake Calculator</h2>
-      <p class="intro">
-        Estimate how much protein you may need each day based on
-        your body weight and fitness goal.
+    <section class="calculator">
+      <h2>Calculate Your Daily Protein</h2>
+      <p class="description">
+        Enter your weight and choose the goal that best
+        matches your current lifestyle.
       </p>
 
       <form id="proteinForm">
-        <label for="weight">Your body weight (kg)</label>
-        <input
-          type="number"
-          id="weight"
-          min="20"
-          max="350"
-          step="0.1"
-          placeholder="Example: 70"
-          required
-        >
+        <div class="form-group">
+          <label for="weight">Your body weight (kg)</label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            min="20"
+            max="350"
+            step="0.1"
+            placeholder="Example: 70"
+            inputmode="decimal"
+            required
+          >
+          <span class="hint">
+            Enter a weight between 20 and 350 kg.
+          </span>
+        </div>
 
-        <label for="category">Choose your lifestyle or goal</label>
-        <select id="category" required>
-          <option value="sedentary">Sedentary / Low activity</option>
-          <option value="maintenance">General fitness / Maintenance</option>
-          <option value="active">Active lifestyle / Sports</option>
-          <option value="muscle">Muscle gain / Bodybuilding</option>
-          <option value="fatloss">Fat loss / Preserve muscle</option>
-        </select>
+        <div class="form-group">
+          <label for="goal">Choose your fitness goal</label>
+          <select id="goal" name="goal" required>
+            <option value="sedentary">
+              Sedentary / Low Activity
+            </option>
+            <option value="general" selected>
+              General Fitness / Maintenance
+            </option>
+            <option value="active">
+              Active Lifestyle / Sports
+            </option>
+            <option value="muscle">
+              Muscle Gain / Bodybuilding
+            </option>
+            <option value="fatloss">
+              Fat Loss / Preserve Muscle
+            </option>
+          </select>
+        </div>
 
-        <button type="submit">Calculate Protein Intake</button>
-        <p id="error" class="error" role="alert"></p>
+        <button type="submit" class="calculate-btn">
+          Calculate My Protein
+        </button>
+
+        <div
+          id="error"
+          class="error"
+          role="alert"
+          aria-live="polite"
+        ></div>
       </form>
 
-      <div id="result" aria-live="polite">
-        <h3>Your Estimated Daily Protein</h3>
-        <div class="protein-number" id="proteinAmount">0 g</div>
-        <p id="goalText" class="result-detail"></p>
-        <p id="factorText" class="result-detail"></p>
-        <p class="note">
-          This is an estimate, not an exact personal requirement.
+      <div
+        class="result"
+        id="result"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="result-label">
+          Your estimated daily protein range
+        </div>
+        <div class="result-number" id="proteinValue">
+          -- <small>g/day</small>
+        </div>
+        <p id="proteinExplanation"></p>
+        <p>
+          This is an estimate, not a personalised medical
+          prescription.
         </p>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Indian Foods Rich in Protein</h2>
-      <p class="intro">
-        Include a variety of protein-rich foods in your normal meals.
-        Values below are approximate and vary by preparation.
-      </p>
+    <div class="sections">
+      <section class="section-card">
+        <h2>Protein in Common Indian Foods</h2>
+        <p>
+          Approximate protein values per typical serving.
+          Actual values depend on preparation and portion size.
+        </p>
 
-      <ul class="food-list">
-        <li><strong>1 large egg:</strong> about 6–7 g protein</li>
-        <li><strong>250 ml milk:</strong> about 8 g protein</li>
-        <li><strong>100 g cooked chicken:</strong> about 25–31 g protein</li>
-        <li><strong>100 g cooked fish:</strong> about 20–26 g protein</li>
-        <li><strong>100 g cooked dal:</strong> about 6–9 g protein</li>
-        <li><strong>100 g tofu:</strong> about 8–17 g protein, depending on type</li>
-        <li><strong>30 g dry soya chunks:</strong> often about 15–16 g protein</li>
-        <li><strong>100 g curd:</strong> about 3–4 g protein</li>
-      </ul>
+        <div class="food-list">
+          <div class="food-item">
+            <strong>1 large egg</strong>
+            <span>6–7 g protein</span>
+          </div>
 
-      <p class="note">
-        Food weights matter: dry soya chunks and cooked soya chunks
-        have different protein concentrations per 100 g.
-      </p>
-    </section>
+          <div class="food-item">
+            <strong>Milk (250 ml)</strong>
+            <span>About 8 g protein</span>
+          </div>
 
-    <section class="card">
-      <h2>How is protein calculated?</h2>
-      <p>
-        Daily protein estimate = body weight in kilograms multiplied
-        by the selected protein factor in grams per kilogram per day.
-      </p>
-      <p class="note">
-        For example, 70 kg × 1.2 g/kg = 84 g protein per day.
-        Your actual needs can vary with age, health, body composition,
-        training and overall diet.
-      </p>
-    </section>
+          <div class="food-item">
+            <strong>Cooked chicken (100 g)</strong>
+            <span>25–31 g protein</span>
+          </div>
+
+          <div class="food-item">
+            <strong>Cooked fish (100 g)</strong>
+            <span>20–26 g protein</span>
+          </div>
+
+          <div class="food-item">
+            <strong>Cooked dal (1 cup)</strong>
+            <span>6–9 g protein</span>
+          </div>
+
+          <div class="food-item">
+            <strong>Soya chunks (30 g dry)</strong>
+            <span>15–16 g protein</span>
+          </div>
+
+          <div class="food-item">
+            <strong>Tofu (100 g)</strong>
+            <span>About 8–17 g protein</span>
+          </div>
+
+          <div class="food-item">
+            <strong>Curd (100 g)</strong>
+            <span>About 3–4 g protein</span>
+          </div>
+        </div>
+
+        <div class="note">
+          Tip: Eggs, dal, milk, curd, fish and soya chunks
+          can help you meet your daily protein target without
+          relying entirely on expensive supplements.
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h2>Protein Needs by Goal</h2>
+        <p>
+          These are broad estimates for generally healthy adults,
+          not exact requirements for every person.
+        </p>
+
+        <div class="goal-list">
+          <div class="goal-item">
+            <strong>Sedentary / Low Activity</strong>
+            <span>0.8–1.0 g per kg of body weight</span>
+          </div>
+
+          <div class="goal-item">
+            <strong>General Fitness / Maintenance</strong>
+            <span>1.0–1.2 g per kg of body weight</span>
+          </div>
+
+          <div class="goal-item">
+            <strong>Active Lifestyle / Sports</strong>
+            <span>1.2–1.6 g per kg of body weight</span>
+          </div>
+
+          <div class="goal-item">
+            <strong>Muscle Gain / Bodybuilding</strong>
+            <span>1.4–2.0 g per kg of body weight</span>
+          </div>
+
+          <div class="goal-item">
+            <strong>Fat Loss / Preserve Muscle</strong>
+            <span>1.4–2.0 g per kg of body weight</span>
+          </div>
+        </div>
+
+        <div class="note">
+          If you have kidney disease or another condition that
+          affects protein intake, ask a healthcare professional
+          for an appropriate target.
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> IndianFitCalc</p>
     <p>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="disclaimer.html">Disclaimer</a>
+      © <span id="year"></span> IndianFitCalc.
+      All rights reserved.
     </p>
-    <p class="note">
-      General educational estimates only. Not a substitute for
-      individual medical or dietetic advice.
+    <p>
+      For educational purposes only.
+      <a href="disclaimer.html">Disclaimer</a>
     </p>
   </footer>
 
   <script>
-    const categories = {
-      sedentary: {
-        min: 0.8,
-        max: 1.0,
-        label: "Sedentary / Low activity",
-        explanation: "A basic range for generally healthy adults with low activity."
-      },
-      maintenance: {
-        min: 1.0,
-        max: 1.2,
-        label: "General fitness / Maintenance",
-        explanation: "A practical range for generally healthy adults seeking general fitness."
-      },
-      active: {
-        min: 1.2,
-        max: 1.6,
-        label: "Active lifestyle / Sports",
-        explanation: "A range for regularly active people; sport-specific needs can differ."
-      },
-      muscle: {
-        min: 1.4,
-        max: 2.0,
-        label: "Muscle gain / Bodybuilding",
-        explanation: "A range often used by healthy adults doing regular resistance training."
-      },
-      fatloss: {
-        min: 1.4,
-        max: 2.0,
-        label: "Fat loss / Preserve muscle",
-        explanation: "A possible range during resistance training and calorie restriction; individual needs vary."
-      }
-    };
+    const form = document.getElementById("proteinForm");
+    const weightInput = document.getElementById("weight");
+    const goalInput = document.getElementById("goal");
+    const result = document.getElementById("result");
+    const proteinValue = document.getElementById("proteinValue");
+    const proteinExplanation =
+      document.getElementById("proteinExplanation");
+    const error = document.getElementById("error");
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    document.getElementById("proteinForm").addEventListener("submit", function(event) {
+    const goals = {
+      sedentary: {
+        min: 0.8,
+        max: 1.0,
+        name: "Sedentary / Low Activity"
+      },
+      general: {
+        min: 1.0,
+        max: 1.2,
+        name: "General Fitness / Maintenance"
+      },
+      active: {
+        min: 1.2,
+        max: 1.6,
+        name: "Active Lifestyle / Sports"
+      },
+      muscle: {
+        min: 1.4,
+        max: 2.0,
+        name: "Muscle Gain / Bodybuilding"
+      },
+      fatloss: {
+        min: 1.4,
+        max: 2.0,
+        name: "Fat Loss / Preserve Muscle"
+      }
+    };
+
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const weight = Number(document.getElementById("weight").value);
-      const categoryKey = document.getElementById("category").value;
-      const error = document.getElementById("error");
-      const result = document.getElementById("result");
+      const weight = Number(weightInput.value);
+      const selectedGoal = goals[goalInput.value];
+
+      if (
+        !Number.isFinite(weight) ||
+        weight < 20 ||
+        weight > 350
+      ) {
+        error.textContent =
+          "Please enter a valid weight between 20 and 350 kg.";
+        result.classList.remove("show");
+        return;
+      }
+
+      const minimum = Math.round(weight * selectedGoal.min);
+      const maximum = Math.round(weight * selectedGoal.max);
 
       error.textContent = "";
-      result.style.display = "none";
 
-      if (!Number.isFinite(weight) || weight < 20 || weight > 350) {
-        error.textContent = "Please enter a valid weight between 20 and 350 kg.";
-        return;
-      }
+      proteinValue.innerHTML =
+        `${minimum}–${maximum} <small>g/day</small>`;
 
-      const category = categories[categoryKey];
+      proteinExplanation.textContent =
+        `For ${weight} kg body weight and your goal of ` +
+        `${selectedGoal.name.toLowerCase()}, this estimate ` +
+        `uses ${selectedGoal.min}–${selectedGoal.max} g of ` +
+        `protein per kg of body weight.`;
 
-      if (!category) {
-        error.textContent = "Please choose a valid category.";
-        return;
-      }
-
-      const low = Math.round(weight * category.min);
-      const high = Math.round(weight * category.max);
-
-      document.getElementById("proteinAmount").textContent =
-        low + "–" + high + " g";
-
-      document.getElementById("goalText").textContent =
-        category.label;
-
-      document.getElementById("factorText").textContent =
-        category.min + "–" + category.max +
-        " g protein per kg of body weight per day.";
-
-      const explanation = document.getElementById("goalExplanation");
-
-      if (explanation) {
-        explanation.textContent = category.explanation;
-      }
-
-      result.style.display = "block";
-      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      result.classList.add("show");
     });
   </script>
 </body>
