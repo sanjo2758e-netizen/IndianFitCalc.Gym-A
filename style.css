@@ -96,17 +96,21 @@ select {
 }
 
 
-.logo {
-    font-size: 1.35rem;
 
-    font-weight: 800;
-
-    letter-spacing: -0.04em;
+.brand {
+  display: inline-block;
+  color: #000000;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -0.7px;
 }
 
+.brand .fit {
+  color: #159845;
+}
 
-.logo span {
-    color: #16a34a;
+.brand .calc {
+  color: #000000;
 }
 
 
