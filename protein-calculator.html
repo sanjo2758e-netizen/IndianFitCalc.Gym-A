@@ -444,6 +444,44 @@
       transition: none !important;
     }
   }
+  /* Fix navigation link colors on mobile */
+nav a,
+nav a:link,
+nav a:visited {
+  color: #5f6b63 !important;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Green on hover or active page */
+nav a:hover,
+nav a:active,
+nav a.active {
+  color: #159845 !important;
+  background: transparent !important;
+}
+
+/* Prevent blue focus background */
+nav a:focus {
+  background: transparent !important;
+  outline: none;
+}
+
+/* Keep logo colors */
+.brand {
+  color: #000000 !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.brand .fit {
+  color: #159845 !important;
+}
+
+.brand .calc {
+  color: #000000 !important;
+}
 </style>
 
 </head>
